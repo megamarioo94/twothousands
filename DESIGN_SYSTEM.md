@@ -59,6 +59,19 @@ Use the live-build system stack for the hackathon: `Arial, Helvetica, sans-serif
 
 Avoid more than two text sizes in a single story module before body copy. Do not use italic, script, faux archival type or serif typography for the product UI.
 
+### Starting mobile type scale
+
+These are starting values, not fixed art direction. Preserve the hierarchy when a device viewport requires scaling.
+
+| Element | Starting value | Notes |
+| --- | --- | --- |
+| Wordmark | 24 px / 900 | Lowercase `two thousand`; normal to tight tracking |
+| Main prompt / home headline | 42–48 px / 800 | Tight tracking, compact line-height |
+| Story title | 32–38 px / 800 | Tight tracking, compact line-height |
+| Primary button | 16 px / 800 | Clear text label, not icon-only |
+| Metadata | 10–12 px / 700 | Uppercase, `0.08em` tracking |
+| Body and annotations | 15–16 px / 400–500 | Minimum 1.45 line-height |
+
 ## Layout and component rules
 
 - Mobile is the primary canvas. One story should be readable vertically with no horizontal page scrolling.
@@ -68,6 +81,14 @@ Avoid more than two text sizes in a single story module before body copy. Do not
 - Story cards lead with: collection position, lens colour, date/place, headline, one-sentence premise, then the interactive object.
 - Controls are explicit: label drag/pan/zoom, provide Reset, and maintain tap targets large enough for a phone.
 - Make the current collection progress visible (for example, `1 / 3 explored`) without gamifying the historical content.
+
+### Design delivery sequence
+
+1. Apply the shared tokens and type hierarchy to the app shell.
+2. Replace the public product wordmark with `two thousand`.
+3. Apply the white, beige and black lens treatments to their matching stories.
+4. Integrate each approved historical component without changing its reconstruction disclosure.
+5. Check the home-to-story flow at a phone viewport before release.
 
 ## History-object direction
 

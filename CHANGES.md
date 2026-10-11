@@ -33,4 +33,26 @@ Replace the public-facing `HUEstory` wordmark in the app header/home screen with
 
 **Reference**: `DESIGN_SYSTEM.md` — Brand architecture and typography.
 
-<!-- Remove C-001 in full after it is implemented and requester-verified. Add new ready-to-build changes below this line. -->
+### C-002 — Align the app shell to the shared design system
+
+**Outcome**
+
+Apply the v1.0 shared design language to the home screen and story-screen shell. This is a UI treatment pass, not a redesign of the information architecture or the history interactions.
+
+**Requirements**
+
+- Use `#F6F6F3` for the paper canvas, `#141414` for primary text/actions, `#676760` for secondary text, `#BCBCB4` for rules, and `#D5ED60` only for small active/navigation signals.
+- Use `Arial, Helvetica, sans-serif`; strong 800–900 headlines; uppercase metadata at 10–12 px with tracking.
+- Keep square corners, thin rules and calm spacing. Do not add gradients, sepia, gold, rounded cards or new decorative fonts.
+- Preserve the three lens associations: white/Majestic, beige/Jackson Plan and black/Singapore Stone.
+- Ensure white-lens panels retain a visible ink or border edge against the paper background.
+
+**Acceptance check**
+
+- Home and all three story shells use the stated tokens and type hierarchy.
+- Acid lime reads as an interface signal rather than a story/lens colour.
+- The existing navigation and story content continue to work at a phone viewport.
+
+**Reference**: `DESIGN_SYSTEM.md` — Colour system, typography and layout rules.
+
+<!-- Remove a completed request in full after it is implemented and requester-verified. Add new ready-to-build changes above this line. -->
