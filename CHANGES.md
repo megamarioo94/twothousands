@@ -350,4 +350,69 @@ Give every existing entry in `STORIES` a stable `id`; do not use its array posit
 - The reward view appears only after every published story is collected and reset clears it.
 - The direct Netlify deployment still works offline after the service worker cache is populated.
 
+### C-004 — Add the Green story: Pasir Panjang Machine-Gun Pillbox
+
+**Outcome**
+
+Add a green-lens history story for the surviving Pasir Panjang Machine-Gun Pillbox: a small, inspectable 3D object that reveals how a coastal defensive structure worked. This is an object study, not a playable war scene, an action game, or a recreation of combat.
+
+**Historical boundary**
+
+The National Heritage Board identifies the pillbox at the junction of Pasir Panjang Road and Science Park Road as part of Singapore's 1930s coastal defence preparations. It had machine guns; its position formed part of overlapping fields of fire. It lay within the area guarded by the 1st Battalion of the Malay Regiment during the Battle of Pasir Panjang.
+
+Do not claim that the surviving pillbox was a confirmed firing position in a specific event unless a stronger primary source is supplied. Do not place soldiers, weapons in use, violence, enemy forces, or invented wartime sound into the scene.
+
+Keep this disclosure visible below the viewer:
+
+> An interpretive 3D study of the surviving Pasir Panjang Machine-Gun Pillbox. Its form and details are simplified for exploration; it is not a surveyed replica or a recreation of battle.
+
+**Story identity**
+
+| Field | Value |
+| --- | --- |
+| Stable story ID | `pasir-panjang-pillbox` |
+| Lens | Green — `#5D7A5B` |
+| Title | `Pasir Panjang Machine-Gun Pillbox` |
+| Eyebrow | `SOUTHWEST / 1930s–1942` |
+| One-line premise | `A small concrete structure built to watch a coastline that no longer looks the same.` |
+| Source | `https://www.roots.gov.sg/places/places-landing/Places/historic-sites/pasir-panjang-machine-gun-pillbox` |
+
+**3D and interaction direction**
+
+- Render a restrained original model: weathered concrete block, two-level firing apertures, ground plane and a single direction marker. Avoid photorealism and do not reproduce a source photograph as a texture.
+- Default view: three-quarter exterior view. Permit a 180-degree horizontal orbit and a modest zoom range. Do not imply an undocumented interior.
+- Use the same quiet editorial treatment as the Jackson component: off-white paper stage, thin ink rule, square controls, Arial/Helvetica, acid lime only for selected interaction states.
+- Add a compact green story key in the palette. The green lens is an entry cue; do not wash the whole interface in green.
+- Respect `prefers-reduced-motion`; manual orbit and zoom stay available, but no auto-rotation or animated camera fly-through.
+
+**Three discoveries**
+
+| ID | Label | Annotation copy |
+| --- | --- | --- |
+| `apertures` | `01 / Firing apertures` | `The openings were positioned to give machine guns a field of fire across the coast. Pillboxes were placed so their fields of fire could overlap.` |
+| `coast` | `02 / A defended coast` | `In the 1930s, British defences anticipated a coastal attack on Singapore. The surrounding shoreline and infrastructure have since changed dramatically.` |
+| `pasir-panjang` | `03 / Pasir Panjang` | `The pillbox lay within the area guarded by the 1st Battalion of the Malay Regiment during the Battle of Pasir Panjang in February 1942.` |
+
+After all three discoveries are opened, fire one collection event and call:
+
+```js
+markStoryCollected("pasir-panjang-pillbox");
+```
+
+**Implementation requirements**
+
+- Add this as a new entry in `STORIES` with the exact stable ID above; do not use array index as its collection key.
+- Build a separate viewer branch for `pasir-panjang-pillbox`, rather than extending the generic theatre renderer with war imagery.
+- Viewer controls require: `Rotate left`, `Rotate right`, `Zoom out`, `Reset view`, `Zoom in`. Controls must be keyboard accessible and have visible labels.
+- Each discovery must remain readable without relying on the 3D scene: the annotation opens as standard HTML text below or alongside the stage.
+- The third discovery triggers the app-owned collection flow exactly once, including after browser refreshes where the story is already collected.
+- Add source link and the disclosure beneath the viewer. Preserve the existing local-only privacy statement and collection reward behaviour.
+
+**Acceptance check**
+
+- Selecting green opens this story at a phone viewport without breaking the existing White, Beige and Black paths.
+- The user can inspect the original simplified model, open all three disclosures, reset it and complete collection with touch, keyboard or labelled controls.
+- Copy makes the historical limits clear and contains no unverified combat narrative.
+- Green progress persists locally with the other stories; the reward denominator continues to come from `STORIES.length`.
+
 <!-- Remove a completed request in full after it is implemented and requester-verified. Add new ready-to-build changes above this line. -->
