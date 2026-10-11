@@ -35,4 +35,3 @@ Build an original 2.5D document schematic. It must be pan-and-zoom first; shallo
 ## Required disclosure
 
 > Interactive schematic based on the 1828 Jackson Plan. It is not an archival map reproduction. The National Archives record states that its proposed plan was not executed exactly as shown.
-
