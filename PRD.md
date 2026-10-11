@@ -387,6 +387,7 @@ Use prepared turntable image sequences for both rotational experiences. Do not a
 - Singapore Stone: 36 transparent WebP frames showing a complete horizontal rotation of one consistent object model.
 - Every sequence must use identical canvas dimensions, camera position, lighting and object scale across frames.
 - Provide one poster image per experience for initial loading and static fallback.
+- Retain the editable source scene with each rendered asset package (for Majestic Theatre, the versioned `.blend` file and render script) so historical corrections can be made without rebuilding the work from scratch.
 - Keep hotspots in a separate data structure containing an ID, label, short copy and one or more frame ranges; do not burn labels into the images.
 - Bundle the approved demo assets inside the APK so the experience remains functional offline.
 
