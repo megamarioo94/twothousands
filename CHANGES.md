@@ -379,6 +379,7 @@ Keep this disclosure visible below the viewer:
 
 **3D and interaction direction**
 
+- Visual direction reference: `prototype/pasir-panjang-pillbox-v1/assets/pillbox-style-study-v1.png`. It is a four-frame stylistic study only, not measured reference imagery or final geometry.
 - Render a restrained original model: weathered concrete block, two-level firing apertures, ground plane and a single direction marker. Avoid photorealism and do not reproduce a source photograph as a texture.
 - Default view: three-quarter exterior view. Permit a 180-degree horizontal orbit and a modest zoom range. Do not imply an undocumented interior.
 - Use the same quiet editorial treatment as the Jackson component: off-white paper stage, thin ink rule, square controls, Arial/Helvetica, acid lime only for selected interaction states.
