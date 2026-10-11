@@ -413,12 +413,13 @@ Use prepared turntable image sequences for both rotational experiences. Do not a
 
 1. **Evidence register:** collect front, angled and current references; record rights and evidentiary limits.
 2. **Reconstruction brief:** lock the 1927 opera-house period, facade scope, three hotspots, camera arc and explicit unknowns.
-3. **Blockout:** test the building mass and silhouette using five views: far left, left, front, right and far right.
-4. **Architectural detail:** add only story-relevant, evidenced facade details.
-5. **Drawing style:** validate matte-white surfaces, black contour lines and light beige shadow using 8–12 test frames.
-6. **Interaction proof:** test drag, zoom, reset and hotspot stability on the demonstration phone before producing all 24 frames.
-7. **Narrative layer:** integrate the opera-house, cinema and repurposed-building timeline with factual and interpretive material clearly separated.
-8. **Final handoff:** deliver frames, poster, fallback, hotspot data, story copy, credits and reconstruction notes as one versioned asset package.
+3. **Browser review harness:** create a static, local-first HTML/CSS/JavaScript prototype with placeholder frames for drag, zoom, reset, hotspot and timeline review. This is an approval environment, not a second product or production web app.
+4. **Blockout:** render the rough building mass into the review harness using five views: far left, left, front, right and far right.
+5. **Architectural detail:** add only story-relevant, evidenced facade details after the blockout is approved.
+6. **Drawing style:** validate matte-white surfaces, black contour lines and light beige shadow in the review harness using 8–12 test frames.
+7. **Interaction proof:** test drag, zoom, reset and hotspot stability in the browser on the demonstration phone before producing all 24 frames.
+8. **Narrative and founder approval:** integrate the opera-house, cinema and repurposed-building timeline, clearly separate factual and interpretive material, and obtain founder approval of the complete browser prototype.
+9. **Final handoff:** deliver frames, poster, fallback, hotspot data, story copy, credits and reconstruction notes as one versioned asset package for mobile integration.
 
 Each batch requires its stated evidence or device check before the next batch begins. New founder-approved history-development criteria must be incorporated into this PRD so the current document remains the shared product authority.
 
