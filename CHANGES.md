@@ -115,7 +115,7 @@ body {
 .lens-black { background: var(--lens-black); color: var(--paper); }
 ```
 
-The class names are illustrative. Adapt them to the existing framework/component names; keep the token values and visual behaviour unchanged.
+**Current implementation target:** `huestory-3d/index.html`. It is a single-file HTML/CSS/JavaScript prototype. The class names in the block above are a reference; use the direct replacements below for this version.
 
 ### C-001 — Make `two thousand` the app wordmark
 
@@ -148,6 +148,37 @@ Set the browser title and share metadata to:
 <meta name="description" content="Discover Singapore's lost and transformed history through colour." />
 ```
 
+**Direct replacements in `huestory-3d/index.html`**
+
+```html
+<!-- Replace the current title element -->
+<title>two thousand — Singapore through colour</title>
+
+<!-- Replace the current header brand button -->
+<button class="brand" onclick="go('home')" aria-label="two thousand home">two thousand</button>
+
+<!-- Replace the current footer -->
+<div class="footer">TWO THOUSAND © 2026 / COMMON GROUND MAKEATHON</div>
+
+<!-- Replace the current About heading -->
+<h2>About two thousand.</h2>
+```
+
+Then replace the existing `.brand` CSS with this. It deliberately removes the lime punctuation treatment from the logo while preserving the existing header layout.
+
+```css
+.brand {
+  color: var(--ink);
+  font: 900 24px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.055em;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+```
+
+Remove the unused `.brand i` rule after the header has no `<i>` element.
+
 **Acceptance check**
 
 - The first visible product name is `two thousand` on the home screen and story screens.
@@ -169,6 +200,35 @@ Apply the v1.0 shared design language to the home screen and story-screen shell.
 - Keep square corners, thin rules and calm spacing. Do not add gradients, sepia, gold, rounded cards or new decorative fonts.
 - Preserve the three lens associations: white/Majestic, beige/Jackson Plan and black/Singapore Stone.
 - Ensure white-lens panels retain a visible ink or border edge against the paper background.
+
+**Direct token replacement in `huestory-3d/index.html`**
+
+Replace its current root declaration with this expanded version. The existing `--bg`, `--ink`, `--muted`, `--border` and `--acid` names remain unchanged, so this does not require a JavaScript rewrite.
+
+```css
+:root {
+  --bg: #f6f6f3;
+  --ink: #141414;
+  --muted: #676760;
+  --border: #bcbcb4;
+  --acid: #d5ed60;
+  --lens-white: #f6f6f3;
+  --lens-beige: #c7a476;
+  --lens-black: #141414;
+}
+```
+
+For both existing palette blocks, replace the beige inline style:
+
+```html
+<!-- Before -->
+<span class="paint" style="background:#b49b7c"></span>
+
+<!-- After -->
+<span class="paint" style="background:var(--lens-beige)"></span>
+```
+
+Do not change the routing, camera classification, story data, viewer JavaScript or source links in C-002.
 
 **Acceptance check**
 
