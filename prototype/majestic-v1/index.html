@@ -49,6 +49,8 @@
       .timeline { display:flex; gap:0; margin-top:26px; border-top:1px solid #aaa294; border-bottom:1px solid #aaa294; }
       .moment { flex:1; padding:12px 9px 13px 0; border-right:1px solid #aaa294; font-size:12px; line-height:1.25; }
       .moment:last-child { border:0; padding-left:9px; }.moment b{display:block;font:700 10px Arial,sans-serif;letter-spacing:.1em;margin-bottom:4px}
+      details { margin-top:18px; font:600 10px Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#625d55; }
+      summary { cursor:pointer; width:max-content; } .style-study { display:block; width:100%; max-height:260px; object-fit:contain; object-position:left bottom; margin-top:10px; background:linear-gradient(135deg,#eee6d8,#fdfaf2); border:1px solid #c8c0b1; }
       footer { border-top:1px solid #bcb5a7; padding-top:14px; display:flex; justify-content:space-between; gap:18px; font-size:11px; line-height:1.4; color:#635d54; }
       @media (max-width:760px){ .shell{padding-top:18px}.eyebrow{display:none}main{grid-template-columns:1fr;gap:12px}.stage{min-height:500px;order:-1}h1{font-size:58px}.copy{padding-top:12px}footer{display:block}.building-wrap{width:min(420px,92%)} }
     </style>
@@ -63,6 +65,7 @@
           <p class="lead">A Cantonese opera house, later a cinema, now a repurposed landmark. Drag the reconstruction to study the facade that carried its changing cultural life.</p>
           <div class="panel" id="panel" aria-live="polite"><h2>Architecture that performed.</h2><p>Select a numbered point on the drawing to uncover the details held in its facade.</p></div>
           <div class="timeline"><div class="moment"><b>1927–28</b>Opera house</div><div class="moment"><b>1938 onward</b>Cinema</div><div class="moment"><b>2003 onward</b>Repurposed building</div></div>
+          <details><summary>Open visual direction study</summary><img class="style-study" src="assets/majestic-style-study-v1.png" alt="Concept-only architectural style study; not a historical reconstruction" /></details>
         </section>
         <section class="stage" id="stage" aria-label="Interactive conceptual reconstruction of the Majestic Theatre">
           <div class="building-wrap"><div class="building" id="building">

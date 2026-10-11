@@ -27,6 +27,10 @@ Create an evidence-bounded, mobile-first architectural study of the Majestic The
 | Style test | 8–12 rendered frames | Architectural-drawing visual language |
 | Final sequence | 24 transparent WebP frames | Device performance and historical disclosure |
 
+## Concept-only style study
+
+`prototype/majestic-v1/assets/majestic-style-study-v1.png` is an AI-generated visual study used only to test the white Art Deco / Chinese-detail rendering direction. It is not evidence, not a source image, not an approved reconstruction, and must not be represented as a historic rendering. The final model must be checked feature-by-feature against the evidence register.
+
 ## Required disclosure
 
 > Visual reconstruction based on historical references. The model focuses on documented facade features; it does not claim a complete survey of the original building.
