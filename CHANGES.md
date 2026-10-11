@@ -246,13 +246,17 @@ Replace the current generic Jackson canvas branch with the verified original 2.5
 
 **Source package**
 
-Use `prototype/jackson-plan-v1/` as supplied:
+Download the ready-to-copy component bundle: `prototype/jackson-plan-v1.zip`.
+
+The extracted bundle is also available as `prototype/jackson-plan-v1/` and contains:
 
 - `jackson-plan.svg`
 - `jackson-plan.css`
 - `jackson-plan.js`
 - `jackson-plan-hotspots.json`
 - `README.md`
+
+The ZIP was checked after packaging and contains exactly these six files.
 
 Do not substitute the NAS map image or trace it. The component is an original explanatory schematic because NAS permits viewing while requiring permission for use/reproduction of its digital image.
 
