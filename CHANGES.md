@@ -356,6 +356,17 @@ Give every existing entry in `STORIES` a stable `id`; do not use its array posit
 
 Add a green-lens history story for the surviving Pasir Panjang Machine-Gun Pillbox: a small, inspectable 3D object that reveals how a coastal defensive structure worked. This is an object study, not a playable war scene, an action game, or a recreation of combat.
 
+**Current visual batch status**
+
+Batch 1 is complete. The earlier canvas blockout in `prototype/pasir-panjang-pillbox-v1/` is superseded for the production-facing visual layer; do not integrate it as the final Green look. The current realism tests are:
+
+- `assets/realism-tests/frame-01-front-three-quarter.png`
+- `assets/realism-tests/frame-02-front-wide.png`
+- `assets/realism-tests/frame-03-side-close.png`
+- `assets/realism-tests/frame-04-side-wide.png`
+
+These are interpretive frame studies, not archival photographs or surveyed geometry. Batch 2 must turn the accepted look into a consistent frame sequence before Mega replaces the old viewer.
+
 **Source package**
 
 Download `prototype/pasir-panjang-pillbox-v1.zip`. It contains the ready-to-copy, dependency-free component:
@@ -409,9 +420,10 @@ Keep this disclosure visible below the viewer:
 
 **3D and interaction direction**
 
-- Visual direction reference: `prototype/pasir-panjang-pillbox-v1/assets/pillbox-style-study-v1.png`. It is a four-frame stylistic study only, not measured reference imagery or final geometry.
-- Render a restrained original model: weathered concrete block, two-level firing apertures, ground plane and a single direction marker. Avoid photorealism and do not reproduce a source photograph as a texture.
-- Default view: three-quarter exterior view. Permit a 180-degree horizontal orbit and a modest zoom range. Do not imply an undocumented interior.
+- Use the realism-test frames as the visual target: low long weathered concrete wall, two low apertures, rounded cupola, tropical roadside context, natural overcast light and physically credible surface wear.
+- Replace the current generic canvas object with a consistent stack of realistic rendered frames. Do not make the user drag a flat diagram that only scales and translates.
+- The documented evidence supports a front-to-side inspection arc only. Do not promise or render a full 180-degree orbit of an undocumented rear or interior; use a bounded front arc until additional measured evidence is supplied.
+- Do not use the National Heritage Board photograph as a texture or redistribute it. Any final frames must be original interpretive renders, visibly disclosed as such.
 - Use the same quiet editorial treatment as the Jackson component: off-white paper stage, thin ink rule, square controls, Arial/Helvetica, acid lime only for selected interaction states.
 - Add a compact green story key in the palette. The green lens is an entry cue; do not wash the whole interface in green.
 - Respect `prefers-reduced-motion`; manual orbit and zoom stay available, but no auto-rotation or animated camera fly-through.
@@ -434,7 +446,8 @@ markStoryCollected("pasir-panjang-pillbox");
 
 - Add this as a new entry in `STORIES` with the exact stable ID above; do not use array index as its collection key.
 - Build a separate viewer branch for `pasir-panjang-pillbox`, rather than extending the generic theatre renderer with war imagery.
-- Viewer controls require: `Rotate left`, `Rotate right`, `Zoom out`, `Reset view`, `Zoom in`. Controls must be keyboard accessible and have visible labels.
+- Viewer controls require: `Rotate left`, `Rotate right`, `Zoom out`, `Reset view`, `Zoom in`. Controls must be keyboard accessible and have visible labels. Frame changes must remain usable with touch and reduced motion.
+- Keep the existing viewer API and collection event, but replace only its visual renderer after Batch 2 is ready. Do not remove the three discoveries or collection integration.
 - Each discovery must remain readable without relying on the 3D scene: the annotation opens as standard HTML text below or alongside the stage.
 - The third discovery triggers the app-owned collection flow exactly once, including after browser refreshes where the story is already collected.
 - Add source link and the disclosure beneath the viewer. Preserve the existing local-only privacy statement and collection reward behaviour.
@@ -442,7 +455,7 @@ markStoryCollected("pasir-panjang-pillbox");
 **Acceptance check**
 
 - Selecting green opens this story at a phone viewport without breaking the existing White, Beige and Black paths.
-- The user can inspect the original simplified model, open all three disclosures, reset it and complete collection with touch, keyboard or labelled controls.
+- The user can inspect the consistent realistic frame sequence across the bounded front arc, open all three disclosures, reset it and complete collection with touch, keyboard or labelled controls.
 - Copy makes the historical limits clear and contains no unverified combat narrative.
 - Green progress persists locally with the other stories; the reward denominator continues to come from `STORIES.length`.
 
