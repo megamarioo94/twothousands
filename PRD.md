@@ -10,6 +10,26 @@
 **Scope:** Three curated Singapore-history experiences only  
 **Source-of-truth rule:** This PRD defines the intended product. The linked primary-source records define historical claims. No archival image, model, audio, or text is reusable until its licence or written permission is confirmed.
 
+## AI review prompt
+
+Copy the prompt below into the GPT or coding agent that will review this project:
+
+> You are reviewing the **two thousand** hackathon mobile-app project. Read this entire PRD, then inspect the current repository and its actual implementation before making recommendations. Treat the PRD as the intended product and the current code as evidence of what has or has not been built.
+>
+> Determine:
+>
+> 1. What is strictly necessary to deliver the three-story Android hackathon experience.
+> 2. What is already implemented, partially implemented, missing or inconsistent with the PRD.
+> 3. Which technical decisions can be made safely from available evidence.
+> 4. Which decisions genuinely require clarification from the founder or build owner.
+> 5. The smallest practical execution order, prioritising a reliable APK and live demonstration over architectural ambition.
+> 6. Whether the proposed QR distribution flow and prepared-frame 3D-style viewers are feasible in the repository's chosen framework.
+> 7. Which historical copy, visual assets, licences, credits or reconstruction disclosures are still missing.
+>
+> Separate **confirmed facts**, **reasonable inferences**, **assumptions** and **open questions**. Flag contradictions between the PRD and code. Do not invent requirements, historical claims, permissions, deadlines or completed work. Do not recommend Unity, AR, a backend or real-time 3D unless repository evidence shows that the simpler PRD approach is inadequate.
+>
+> Begin with a concise verdict. Then provide: (a) current-state assessment, (b) minimum required scope, (c) gaps and risks, (d) ordered next actions, and (e) only the clarification questions whose answers would materially change implementation. Do not write code, modify files, install dependencies, commit, push, publish or deploy unless the user explicitly authorises that specific action.
+
 ### Hackathon deliverables
 
 1. Installable Android APK.
