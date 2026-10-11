@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>two thousand — The Majestic Theatre</title>
+    <style>
+      :root { --ink:#171715; --paper:#f3efe4; --mist:#ded8ca; --line:#24231f; --accent:#b65d35; }
+      * { box-sizing:border-box; }
+      body { margin:0; min-height:100vh; color:var(--ink); background:radial-gradient(circle at 68% 18%, #fffdf7 0 11%, transparent 32%), var(--paper); font-family:Georgia, 'Times New Roman', serif; }
+      button, input { font:inherit; }
+      .shell { width:min(1120px, 100%); min-height:100vh; margin:auto; padding:24px clamp(18px,4vw,56px) 42px; display:grid; grid-template-rows:auto 1fr auto; gap:20px; }
+      header { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #bcb5a7; padding-bottom:14px; font-size:12px; letter-spacing:.13em; text-transform:uppercase; }
+      .wordmark { font-family:Arial,sans-serif; font-weight:800; letter-spacing:-.07em; font-size:22px; text-transform:lowercase; }
+      .eyebrow { color:#70695f; }
+      main { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(280px,.75fr); gap:clamp(22px,5vw,80px); align-items:center; }
+      .copy { align-self:center; }
+      h1 { font-size:clamp(44px,7vw,92px); font-weight:400; line-height:.88; letter-spacing:-.065em; margin:12px 0 20px; }
+      h1 em { font-style:italic; color:var(--accent); }
+      .lead { max-width:38ch; font-size:17px; line-height:1.5; margin:0 0 20px; }
+      .period { display:flex; gap:9px; align-items:center; color:#625d55; font:600 11px/1.1 Arial,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+      .period::before { content:''; width:28px; border-top:1px solid currentColor; }
+      .stage { min-height:520px; display:grid; place-items:center; position:relative; overflow:hidden; border:1px solid #c6beaf; background:linear-gradient(145deg,#fcfaf3,#e8e1d3); box-shadow:18px 18px 0 #d7d0c2; touch-action:none; }
+      .stage::before { content:'MAJESTIC / 1927'; position:absolute; top:16px; left:18px; color:#766e62; font:600 10px Arial,sans-serif; letter-spacing:.18em; }
+      .stage::after { content:'CONCEPTUAL BLOCKOUT'; position:absolute; bottom:16px; right:18px; color:#766e62; font:600 10px Arial,sans-serif; letter-spacing:.13em; }
+      .building-wrap { width:min(470px,86%); perspective:900px; transform:translateY(18px); }
+      .building { position:relative; width:100%; aspect-ratio:1.04; transform-style:preserve-3d; transition:transform 80ms linear; }
+      .facade { position:absolute; inset:10% 4% 4%; background:#faf8f1; border:3px solid var(--line); box-shadow:14px 14px 0 rgba(50,45,37,.12); }
+      .facade::before { content:''; position:absolute; left:8%; right:8%; top:13%; height:3px; background:var(--line); box-shadow:0 54px 0 var(--line),0 106px 0 var(--line); }
+      .tower { position:absolute; width:35%; height:88%; left:32.5%; top:-5%; background:#fffdf7; border:3px solid var(--line); z-index:3; display:grid; place-items:center; }
+      .tower::before { content:'大華'; writing-mode:vertical-rl; font-size:42px; line-height:.8; letter-spacing:.1em; }
+      .tower::after { content:'THEATRE OF HEAVENLY SHOWS'; position:absolute; bottom:10%; font:700 7px Arial,sans-serif; letter-spacing:.12em; writing-mode:vertical-rl; }
+      .tile { position:absolute; width:20%; height:30%; top:20%; border:2px solid var(--line); background:linear-gradient(145deg,#f2eee4,#fff); display:grid; place-items:center; z-index:2; }
+      .tile:nth-of-type(1){left:8%}.tile:nth-of-type(2){right:8%}.tile svg{width:75%;height:75%;stroke:var(--line);fill:none;stroke-width:3}
+      .dragon { position:absolute; width:26%; height:18%; bottom:16%; border:2px solid var(--line); border-radius:55% 45% 52% 48%; z-index:2; }
+      .dragon.left{left:6%; transform:rotate(-9deg)} .dragon.right{right:6%; transform:scaleX(-1) rotate(-9deg)}
+      .dragon::before { content:'✦'; position:absolute; inset:16%; display:grid; place-items:center; font-size:29px; }
+      .steps { position:absolute; z-index:4; height:11%; left:18%; right:18%; bottom:-4%; background:repeating-linear-gradient(to bottom,#d6cfc1 0 5px,#26251f 5px 7px); border:2px solid var(--line); transform:skewX(-6deg); }
+      .hotspot { position:absolute; z-index:8; width:31px; height:31px; border:1px solid var(--line); border-radius:50%; background:var(--paper); color:var(--line); cursor:pointer; font:700 13px Arial,sans-serif; display:grid; place-items:center; transition:transform .2s; }
+      .hotspot:hover,.hotspot:focus { transform:scale(1.14); outline:none; }
+      .hotspot.one{left:20%;top:31%}.hotspot.two{right:19%;bottom:31%}.hotspot.three{left:49%;top:16%}
+      .controls { position:absolute; left:18px; right:18px; bottom:43px; z-index:10; display:flex; align-items:center; gap:12px; }
+      .controls input { flex:1; accent-color:var(--accent); }
+      .reset { border:1px solid var(--line); background:var(--paper); padding:8px 11px; cursor:pointer; font:600 10px Arial,sans-serif; letter-spacing:.1em; }
+      .hint { position:absolute; left:18px; bottom:18px; font:600 10px Arial,sans-serif; letter-spacing:.1em; color:#6f685f; text-transform:uppercase; }
+      .panel { min-height:144px; margin-top:20px; border-top:1px solid #aaa294; padding-top:13px; }
+      .panel h2 { margin:0 0 6px; font-size:21px; font-weight:400; }
+      .panel p { margin:0; max-width:50ch; line-height:1.5; font-size:14px; }
+      .timeline { display:flex; gap:0; margin-top:26px; border-top:1px solid #aaa294; border-bottom:1px solid #aaa294; }
+      .moment { flex:1; padding:12px 9px 13px 0; border-right:1px solid #aaa294; font-size:12px; line-height:1.25; }
+      .moment:last-child { border:0; padding-left:9px; }.moment b{display:block;font:700 10px Arial,sans-serif;letter-spacing:.1em;margin-bottom:4px}
+      footer { border-top:1px solid #bcb5a7; padding-top:14px; display:flex; justify-content:space-between; gap:18px; font-size:11px; line-height:1.4; color:#635d54; }
+      @media (max-width:760px){ .shell{padding-top:18px}.eyebrow{display:none}main{grid-template-columns:1fr;gap:12px}.stage{min-height:500px;order:-1}h1{font-size:58px}.copy{padding-top:12px}footer{display:block}.building-wrap{width:min(420px,92%)} }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header><span class="wordmark">two thousand</span><span class="eyebrow">Singapore in colour / prototype 1.0</span><span>White</span></header>
+      <main>
+        <section class="copy">
+          <div class="period">1927–28 / Eu Tong Sen Street</div>
+          <h1>The <em>Majestic</em><br />before the films.</h1>
+          <p class="lead">A Cantonese opera house, later a cinema, now a repurposed landmark. Drag the reconstruction to study the facade that carried its changing cultural life.</p>
+          <div class="panel" id="panel" aria-live="polite"><h2>Architecture that performed.</h2><p>Select a numbered point on the drawing to uncover the details held in its facade.</p></div>
+          <div class="timeline"><div class="moment"><b>1927–28</b>Opera house</div><div class="moment"><b>1938 onward</b>Cinema</div><div class="moment"><b>2003 onward</b>Repurposed building</div></div>
+        </section>
+        <section class="stage" id="stage" aria-label="Interactive conceptual reconstruction of the Majestic Theatre">
+          <div class="building-wrap"><div class="building" id="building">
+            <div class="facade"></div><div class="tower"></div>
+            <div class="tile"><svg viewBox="0 0 80 110"><circle cx="40" cy="20" r="13"/><path d="M40 33v42M16 51l24-18 24 18M23 97c8-16 26-16 34 0"/></svg></div>
+            <div class="tile"><svg viewBox="0 0 80 110"><circle cx="40" cy="20" r="13"/><path d="M40 33v42M16 51l24-18 24 18M23 97c8-16 26-16 34 0"/></svg></div>
+            <div class="dragon left"></div><div class="dragon right"></div><div class="steps"></div>
+            <button class="hotspot one" data-key="tiles" aria-label="Stories in the tiles">1</button><button class="hotspot two" data-key="dragons" aria-label="Dragons on the facade">2</button><button class="hotspot three" data-key="hybrid" aria-label="Art Deco and Chinese voice">3</button>
+          </div></div>
+          <div class="controls"><input id="orbit" type="range" min="-90" max="90" value="0" aria-label="Facade orbit"><button class="reset" id="reset">Front view</button></div><div class="hint">Drag building or use orbit control</div>
+        </section>
+      </main>
+      <footer><span>Visual reconstruction concept based on historical references. It does not claim a complete survey of the original building.</span><span>v1.0 / browser review only</span></footer>
+    </div>
+    <script>
+      const building=document.querySelector('#building'), orbit=document.querySelector('#orbit'), panel=document.querySelector('#panel'), stage=document.querySelector('#stage');
+      const details={tiles:['Stories in the tiles','URA identifies hand-painted facade tiles depicting opera characters. Here they are deliberately schematic: the prototype tests whether a facade detail can carry a cultural story before final modelling.'],dragons:['Dragons on the facade','Flying dragons were part of the Majestic’s documented decorative facade. Their final form will be evidence-checked, not generated merely for ornament.'],hybrid:['Art Deco, Chinese voice','The Majestic combined Art Deco massing with Chinese-inspired motifs. This tension is the visual core of the reconstruction—not a claim that every unseen detail is known.']};
+      const render=()=>{building.style.transform=`rotateY(${orbit.value}deg) rotateX(2deg)`}; render(); orbit.addEventListener('input',render);
+      document.querySelector('#reset').addEventListener('click',()=>{orbit.value=0;render()});
+      document.querySelectorAll('.hotspot').forEach(b=>b.addEventListener('click',()=>{const d=details[b.dataset.key];panel.innerHTML=`<h2>${d[0]}</h2><p>${d[1]}</p>`}));
+      let startX=null,startValue=0; stage.addEventListener('pointerdown',e=>{if(e.target.closest('button,input'))return; startX=e.clientX;startValue=+orbit.value;stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(startX===null)return;orbit.value=Math.max(-90,Math.min(90,startValue+(e.clientX-startX)/2));render()});stage.addEventListener('pointerup',()=>startX=null);stage.addEventListener('pointercancel',()=>startX=null);
+    </script>
+  </body>
+</html>
