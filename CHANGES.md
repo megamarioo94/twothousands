@@ -12,6 +12,111 @@ This is the live, short-lived implementation queue for the app. It is not a back
 
 ## Open changes
 
+## Implementation order
+
+1. Add the visual tokens below to the app’s global stylesheet.
+2. Replace the wordmark and browser/share name with `two thousand`.
+3. Apply the shared shell classes to home and story screens without changing their existing route or interaction logic.
+4. Test at a phone viewport: home, scan/select colour, each story, back/reset.
+5. Commit with the relevant C-number, ask for requester verification, then remove the completed C-number from this document.
+
+## Copy/paste visual foundation
+
+Add this once to the global stylesheet. If the app already has token names, map those existing names to these values instead of maintaining two palettes.
+
+```css
+:root {
+  --paper: #f6f6f3;
+  --ink: #141414;
+  --muted: #676760;
+  --rule: #bcbcb4;
+  --acid: #d5ed60;
+  --lens-white: #f6f6f3;
+  --lens-beige: #c7a476;
+  --lens-black: #141414;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-shell {
+  width: min(100%, 560px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--paper);
+}
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+  color: var(--ink);
+  font: 900 24px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.055em;
+  text-decoration: none;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font: 700 11px/1.2 Arial, Helvetica, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.display-title {
+  margin: 24px 0 12px;
+  color: var(--ink);
+  font: 800 clamp(42px, 11vw, 48px)/0.96 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.07em;
+}
+
+.primary-action,
+.secondary-action {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 0;
+  font: 800 16px/1 Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+.primary-action {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.secondary-action {
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+}
+
+.is-active,
+.progress-mark { background: var(--acid); }
+
+.lens-white { background: var(--lens-white); border: 1px solid var(--ink); }
+.lens-beige { background: var(--lens-beige); }
+.lens-black { background: var(--lens-black); color: var(--paper); }
+```
+
+The class names are illustrative. Adapt them to the existing framework/component names; keep the token values and visual behaviour unchanged.
+
 ### C-001 — Make `two thousand` the app wordmark
 
 **Outcome**
@@ -24,6 +129,24 @@ Replace the public-facing `HUEstory` wordmark in the app header/home screen with
 - Use bold near-black type (`#141414`), no custom illustrated logo, icon or decorative typeface.
 - Preserve the current quiet editorial layout and square-corner visual system.
 - Acid lime (`#D5ED60`) may remain a small interface accent but is not part of the wordmark.
+
+**Copy/paste markup**
+
+Use the equivalent component syntax for the app’s framework:
+
+```html
+<header class="app-header">
+  <a class="wordmark" href="/" aria-label="two thousand home">two thousand</a>
+  <span class="eyebrow">SG / 2026</span>
+</header>
+```
+
+Set the browser title and share metadata to:
+
+```html
+<title>two thousand — Singapore through colour</title>
+<meta name="description" content="Discover Singapore's lost and transformed history through colour." />
+```
 
 **Acceptance check**
 
