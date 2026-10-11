@@ -182,9 +182,9 @@ The requirement keywords **must**, **should**, and **may** correspond to P0, P1,
 
 **Majestic Theatre**
 
-- Render a lightweight, stylised reconstruction of the 1927 opera-house era using a prepared 36-frame turntable; real-time 3D is not required for the hackathon build.
+- Render a lightweight, stylised reconstruction of the 1927 opera-house era using a prepared 24-frame, 180-degree facade orbit; real-time 3D is not required for the hackathon build.
 - Support horizontal one-finger drag to rotate, two-finger pinch to zoom, reset view, and three labelled hotspots.
-- Map a full-width drag to one complete rotation, wrap seamlessly from the last frame to the first, and preload adjacent frames to avoid visible flicker.
+- Map a full-width drag to travel from the far-left to far-right documented view. Do not wrap from the last frame to the first because this is an evidence-bounded facade orbit, not a claimed complete reconstruction.
 - Use hotspots for the tiled facade, Cantonese-opera figures and dragon motifs; the story copy must also explain the later cinema and shopping-mall uses.
 - Include a static image fallback for low-capability devices.
 
@@ -284,7 +284,7 @@ Each bundled story record must contain:
 1. Android is the hackathon target; iOS is out of scope.
 2. The deliverable is an installable APK, with an Android App Bundle deferred unless Play Store submission becomes necessary.
 3. The app contains three local stories and requires no backend.
-4. Majestic Theatre and Singapore Stone rotation use prepared 36-frame image sequences instead of a real-time 3D engine. This is the locked hackathon approach unless device testing proves it inadequate.
+4. Majestic Theatre uses a prepared 24-frame, 180-degree facade orbit; Singapore Stone uses a prepared 36-frame complete object rotation. Neither requires a real-time 3D engine. This is the locked hackathon approach unless device testing proves it inadequate.
 5. Colour matching runs on-device and always has a manual fallback.
 6. The pitch deck uses minimal language: each slide should contain no more than one principal phrase of three to five words, excluding essential labels, citations and installation instructions.
 7. The QR code points to a stable HTTPS landing page rather than directly to a version-specific APK file.
@@ -383,7 +383,7 @@ Use prepared turntable image sequences for both rotational experiences. Do not a
 
 ### Asset contract
 
-- Majestic Theatre: 36 transparent WebP frames showing a complete horizontal rotation of one consistent reconstruction.
+- Majestic Theatre: 24 transparent WebP frames showing a 180-degree facade orbit of one consistent reconstruction. The orbit must remain within historically supportable views and must not imply that undocumented rear geometry is verified.
 - Singapore Stone: 36 transparent WebP frames showing a complete horizontal rotation of one consistent object model.
 - Every sequence must use identical canvas dimensions, camera position, lighting and object scale across frames.
 - Provide one poster image per experience for initial loading and static fallback.
@@ -392,13 +392,36 @@ Use prepared turntable image sequences for both rotational experiences. Do not a
 
 ### Interaction and performance
 
-- Horizontal drag advances or reverses frames; rotation wraps continuously.
+- Horizontal drag advances or reverses frames. The Singapore Stone wraps continuously; the Majestic Theatre stops at the two documented ends of its facade orbit.
 - Pinch changes the rendered image scale within defined minimum and maximum bounds; it does not generate new camera angles.
 - Reset restores frame zero, default zoom and closed hotspots.
 - Preload the poster and nearby frames first, then the remaining sequence; show no blank canvas while loading.
 - Respect reduced-motion settings by defaulting to the poster image with explicit step controls.
 - If the prepared sequence cannot hold a smooth frame rate on the demonstration phone, reduce image dimensions or frame count before considering a different rendering engine.
 
-## 18. First action for execution
+## 18. History-component production criteria
+
+### Source and reconstruction rules
+
+- Historical evidence must be registered before asset production begins. Each reference requires a source, date or estimated period, rights status and a note describing what it supports.
+- Classify every reconstructed feature as **documented**, **reasonably inferred**, **unknown**, or **excluded**.
+- Do not model an undocumented feature merely to complete a camera angle. Limit the camera instead.
+- AI-generated geometry or imagery may support concept exploration, but it is not historical evidence and must be corrected against approved references before release.
+- All final historical copy, credits and reconstruction disclosures require founder approval before integration.
+
+### Majestic Theatre production batches
+
+1. **Evidence register:** collect front, angled and current references; record rights and evidentiary limits.
+2. **Reconstruction brief:** lock the 1927 opera-house period, facade scope, three hotspots, camera arc and explicit unknowns.
+3. **Blockout:** test the building mass and silhouette using five views: far left, left, front, right and far right.
+4. **Architectural detail:** add only story-relevant, evidenced facade details.
+5. **Drawing style:** validate matte-white surfaces, black contour lines and light beige shadow using 8–12 test frames.
+6. **Interaction proof:** test drag, zoom, reset and hotspot stability on the demonstration phone before producing all 24 frames.
+7. **Narrative layer:** integrate the opera-house, cinema and repurposed-building timeline with factual and interpretive material clearly separated.
+8. **Final handoff:** deliver frames, poster, fallback, hotspot data, story copy, credits and reconstruction notes as one versioned asset package.
+
+Each batch requires its stated evidence or device check before the next batch begins. New founder-approved history-development criteria must be incorporated into this PRD so the current document remains the shared product authority.
+
+## 19. First action for execution
 
 Confirm the event’s APK distribution rules, presentation duration and venue connectivity. Then create an asset-and-copy register for the three stories: source URL, exact approved copy, rights status, visual asset owner, reconstruction disclaimer, and build-ready colour swatch. Do this before UI implementation.
