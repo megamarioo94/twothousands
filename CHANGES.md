@@ -244,6 +244,8 @@ Do not change the routing, camera classification, story data, viewer JavaScript 
 
 Replace the current generic Jackson canvas branch with the verified original 2.5D Jackson Plan component. Connect its three discoveries to a persistent local collection counter and the all-stories reward view.
 
+This section is self-contained. Build it from this change request; the ZIP only supplies the ready-made files.
+
 **Source package**
 
 Download the ready-to-copy component bundle: `prototype/jackson-plan-v1.zip`.
@@ -260,6 +262,33 @@ The ZIP was checked after packaging and contains exactly these six files.
 
 Do not substitute the NAS map image or trace it. The component is an original explanatory schematic because NAS permits viewing while requiring permission for use/reproduction of its digital image.
 
+**Historical content and disclosure**
+
+The one idea the component must communicate:
+
+> The 1828 Jackson Plan proposed an ordered Singapore Town. It was not executed exactly as shown.
+
+Keep this exact disclosure below the component:
+
+> Interactive schematic based on the 1828 Jackson Plan. It is not an archival map reproduction. The National Archives record states that its proposed plan was not executed exactly as shown.
+
+Use these exact discoveries:
+
+| ID | Button label | Annotation copy |
+| --- | --- | --- |
+| `river` | `01 / Singapore River` | The plan places the Singapore River at the centre of commercial and civic life. It is the geographic anchor for this proposed town. |
+| `districts` | `02 / Planned districts` | The plan labels places such as Chinese Kampong, Chuliah Kampong, Bugis Kampong and European Town. These are proposed divisions, not a complete record of the city as built. |
+| `reality` | `03 / Plan versus city` | A plan can reveal an ambition as much as a place. The National Archives states that this proposed plan was not actually executed as shown. |
+
+**Visual and interaction rules**
+
+- This is a beige, original 2.5D document; it is not a rotatable 3D object.
+- Keep the plan readable and flat. Shallow raised overlays are allowed only when a discovery is active.
+- One finger drags to pan; pinch or wheel zooms between `0.8x` and `3x`.
+- Keep visible `− Zoom`, `Reset` and `+ Zoom` controls.
+- Reduced-motion users keep every interaction; only visual transitions are removed.
+- Use the existing beige palette token `--lens-beige: #c7a476`, ink `#141414` and acid highlight `#d5ed60`.
+
 **Integration requirements**
 
 - Copy the package into the direct Netlify deployment folder and load its CSS/JS from `huestory-3d/index.html`.
@@ -270,6 +299,49 @@ Do not substitute the NAS map image or trace it. The component is an original ex
 - Unlock the local Singapore Through Colour poster only when every currently published story ID is collected. Include a reset-collection control.
 - Revise the privacy text: collection progress is stored locally on the device; no camera image, location or data is uploaded.
 
+**Copy/paste integration skeleton**
+
+Add the files beside `huestory-3d/index.html`, then include:
+
+```html
+<link rel="stylesheet" href="jackson-plan.css" />
+<script src="jackson-plan.js"></script>
+```
+
+Use a dedicated host in the story screen:
+
+```html
+<div id="jackson-plan-host" class="hidden"></div>
+```
+
+Mount it once only when the Jackson story opens:
+
+```js
+const jacksonHost = document.getElementById("jackson-plan-host");
+const jackson = JacksonPlan.mount(jacksonHost, { svgUrl: "jackson-plan.svg" });
+
+jacksonHost.addEventListener("jacksonplan:collected", (event) => {
+  markStoryCollected(event.detail.id);
+});
+```
+
+The host app owns persistence:
+
+```js
+const COLLECTION_KEY = "two-thousand:collection:v1";
+const collected = new Set(JSON.parse(localStorage.getItem(COLLECTION_KEY) || "[]"));
+
+function markStoryCollected(id) {
+  collected.add(id);
+  localStorage.setItem(COLLECTION_KEY, JSON.stringify([...collected]));
+  const complete = STORIES.every((story) => collected.has(story.id));
+  updateCollectionCounter(collected.size, STORIES.length);
+  if (complete) showSingaporeThroughColourPoster();
+}
+```
+
+Give every existing entry in `STORIES` a stable `id`; do not use its array position as the collection key. The final reward shows all published story colours and titles, the `two thousand` wordmark, and a reset-collection action. It must work offline; sharing/export is optional.
+
 **Acceptance check**
 
 - Jackson supports one-finger pan, pinch zoom, wheel zoom, explicit zoom controls and reset on the mobile viewport.
@@ -277,7 +349,5 @@ Do not substitute the NAS map image or trace it. The component is an original ex
 - The app counter survives refresh on the same device, but no data is sent to a server.
 - The reward view appears only after every published story is collected and reset clears it.
 - The direct Netlify deployment still works offline after the service worker cache is populated.
-
-**Reference**: `docs/history/JACKSON_PLAN_CONTENT_BRIEF.md` and `prototype/jackson-plan-v1/README.md`.
 
 <!-- Remove a completed request in full after it is implemented and requester-verified. Add new ready-to-build changes above this line. -->
