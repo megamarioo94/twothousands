@@ -356,6 +356,36 @@ Give every existing entry in `STORIES` a stable `id`; do not use its array posit
 
 Add a green-lens history story for the surviving Pasir Panjang Machine-Gun Pillbox: a small, inspectable 3D object that reveals how a coastal defensive structure worked. This is an object study, not a playable war scene, an action game, or a recreation of combat.
 
+**Source package**
+
+Download `prototype/pasir-panjang-pillbox-v1.zip`. It contains the ready-to-copy, dependency-free component:
+
+- `pillbox-viewer.js`
+- `pillbox-viewer.css`
+- `pillbox-discoveries.json`
+- `index.html` — standalone review page
+- `README.md`
+- `assets/pillbox-style-study-v1.png` — style direction only
+
+Copy `pillbox-viewer.js` and `pillbox-viewer.css` beside `huestory-3d/index.html`, then include:
+
+```html
+<link rel="stylesheet" href="pillbox-viewer.css" />
+<script src="pillbox-viewer.js"></script>
+<div id="pillbox-host" class="hidden"></div>
+```
+
+Mount it only when the Green story opens. The host app owns persistence and the all-story reward:
+
+```js
+const pillboxHost = document.getElementById("pillbox-host");
+const pillbox = PasirPanjangPillbox.mount(pillboxHost);
+
+pillboxHost.addEventListener("pillbox:collected", (event) => {
+  markStoryCollected(event.detail.id);
+});
+```
+
 **Historical boundary**
 
 The National Heritage Board identifies the pillbox at the junction of Pasir Panjang Road and Science Park Road as part of Singapore's 1930s coastal defence preparations. It had machine guns; its position formed part of overlapping fields of fire. It lay within the area guarded by the 1st Battalion of the Malay Regiment during the Battle of Pasir Panjang.

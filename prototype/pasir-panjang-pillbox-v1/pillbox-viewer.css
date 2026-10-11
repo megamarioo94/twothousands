@@ -1,0 +1,18 @@
+:root { --pp-paper:#f6f6f3; --pp-ink:#141414; --pp-muted:#676760; --pp-rule:#bcbcb4; --pp-acid:#d5ed60; --pp-green:#5d7a5b; }
+.pillbox-viewer { color:var(--pp-ink); font-family:Arial,Helvetica,sans-serif; }
+.pillbox-viewer__stage { position:relative; min-height:350px; overflow:hidden; border:1px solid var(--pp-ink); background:var(--pp-paper); touch-action:none; cursor:grab; }
+.pillbox-viewer__stage.is-dragging { cursor:grabbing; }
+.pillbox-viewer__canvas { width:100%; height:350px; display:block; }
+.pillbox-viewer__caption,.pillbox-viewer__hint { position:absolute; z-index:1; margin:0; padding:6px 8px; font:700 10px/1.2 Arial,Helvetica,sans-serif; letter-spacing:.07em; text-transform:uppercase; }
+.pillbox-viewer__caption { top:10px; left:10px; background:var(--pp-paper); }
+.pillbox-viewer__hint { right:10px; bottom:10px; background:rgb(20 20 20 / 88%); color:var(--pp-paper); }
+.pillbox-viewer__controls { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:10px; }
+.pillbox-viewer__controls button,.pillbox-viewer__discovery { min-height:42px; border:1px solid var(--pp-ink); border-radius:0; background:transparent; color:var(--pp-ink); font:700 12px/1 Arial,Helvetica,sans-serif; }
+.pillbox-viewer__discoveries { display:grid; gap:1px; margin-top:12px; border:1px solid var(--pp-rule); background:var(--pp-rule); }
+.pillbox-viewer__discovery { padding:13px; border:0; background:var(--pp-paper); text-align:left; }
+.pillbox-viewer__discovery.is-active { background:var(--pp-acid); }
+.pillbox-viewer__discovery.is-found::after { content:" collected"; color:var(--pp-muted); font-size:10px; text-transform:uppercase; }
+.pillbox-viewer__annotation { min-height:76px; margin:12px 0 0; padding:12px; border-left:3px solid var(--pp-green); background:#e9e9e5; color:#4d4d49; font-size:13px; line-height:1.45; }
+.pillbox-viewer__progress { margin:12px 0 0; color:var(--pp-muted); font:700 11px/1.3 Arial,Helvetica,sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+@media (max-width:440px) { .pillbox-viewer__controls { grid-template-columns:repeat(3,1fr); } }
+@media (prefers-reduced-motion:reduce) { .pillbox-viewer * { scroll-behavior:auto; } }

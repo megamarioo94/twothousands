@@ -1,0 +1,5 @@
+[
+  { "id": "apertures", "number": "01", "label": "Firing apertures", "copy": "The openings were positioned to give machine guns a field of fire across the coast. Pillboxes were placed so their fields of fire could overlap." },
+  { "id": "coast", "number": "02", "label": "A defended coast", "copy": "In the 1930s, British defences anticipated a coastal attack on Singapore. The surrounding shoreline and infrastructure have since changed dramatically." },
+  { "id": "pasir-panjang", "number": "03", "label": "Pasir Panjang", "copy": "The pillbox lay within the area guarded by the 1st Battalion of the Malay Regiment during the Battle of Pasir Panjang in February 1942." }
+]
