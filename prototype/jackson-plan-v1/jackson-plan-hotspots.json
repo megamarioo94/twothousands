@@ -1,0 +1,23 @@
+[
+  {
+    "id": "river",
+    "number": "01",
+    "label": "Singapore River",
+    "copy": "The plan places the Singapore River at the centre of commercial and civic life. It is the geographic anchor for this proposed town.",
+    "evidence": "The National Archives description lists the Singapore River among the mapped features."
+  },
+  {
+    "id": "districts",
+    "number": "02",
+    "label": "Planned districts",
+    "copy": "The plan labels places such as Chinese Kampong, Chuliah Kampong, Bugis Kampong and European Town. These are proposed divisions, not a complete record of the city as built.",
+    "evidence": "The National Archives description identifies these named settlements and land divisions."
+  },
+  {
+    "id": "reality",
+    "number": "03",
+    "label": "Plan versus city",
+    "copy": "A plan can reveal an ambition as much as a place. The National Archives states that this proposed plan was not actually executed as shown.",
+    "evidence": "National Archives accession SP002981, scope and content note."
+  }
+]

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Interactive schematic of the 1828 Jackson Plan</title>
+  <desc id="desc">An original, not-to-scale explanatory drawing of selected proposed districts around the Singapore River.</desc>
+  <style>
+    .paper{fill:#e6d3ae}.line{fill:none;stroke:#24211c;stroke-width:3}.fine{fill:none;stroke:#655a48;stroke-width:1.5}.label{fill:#24211c;font:700 20px Arial,Helvetica,sans-serif;letter-spacing:1px}.micro{fill:#655a48;font:700 13px Arial,Helvetica,sans-serif;letter-spacing:1.3px}.block{fill:#d5b987;stroke:#24211c;stroke-width:2}.shadow{fill:#b4976b;stroke:#24211c;stroke-width:2}.river{fill:none;stroke:#f6f2e8;stroke-width:64;stroke-linecap:round}.riverline{fill:none;stroke:#24211c;stroke-width:3;stroke-linecap:round}.hot{fill:#141414;stroke:#f6f6f3;stroke-width:5}.hottext{fill:#f6f6f3;font:800 16px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:middle}.active{opacity:0}.jp-layer.is-active .active{opacity:1}.jp-layer.is-active .relief{transform:translate(-8px,-10px)}.relief{transform-origin:center;transition:transform .18s ease}.overlay{fill:#d5ed60;opacity:.58;stroke:#141414;stroke-width:2}.reality{fill:#c35245;opacity:.42;stroke:#141414;stroke-width:2;stroke-dasharray:8 6}
+  </style>
+  <rect class="paper" x="0" y="0" width="1200" height="800"/>
+  <g id="jp-content">
+    <path class="fine" d="M90 110H1110M90 190H1110M90 270H1110M90 350H1110M90 430H1110M90 510H1110M90 590H1110M90 670H1110" opacity=".32"/>
+    <path class="fine" d="M140 70V730M260 70V730M380 70V730M500 70V730M620 70V730M740 70V730M860 70V730M980 70V730" opacity=".32"/>
+    <text class="micro" x="74" y="65">1828 / SINGAPORE TOWN / SCHEMATIC STUDY</text>
+    <text class="micro" x="905" y="742">NOT TO SCALE</text>
+
+    <g class="jp-layer" data-layer="river">
+      <path class="river" d="M155 618C295 552 313 460 438 447C561 434 586 536 694 503C802 470 790 349 913 314C1002 289 1060 237 1115 161"/>
+      <path class="riverline" d="M155 618C295 552 313 460 438 447C561 434 586 536 694 503C802 470 790 349 913 314C1002 289 1060 237 1115 161"/>
+      <path class="overlay active" d="M155 618C295 552 313 460 438 447C561 434 586 536 694 503C802 470 790 349 913 314C1002 289 1060 237 1115 161" fill="none" stroke="#d5ed60" stroke-width="72" stroke-linecap="round"/>
+      <text class="label" x="654" y="568">SINGAPORE RIVER</text>
+      <circle class="hot" cx="701" cy="500" r="22"/><text class="hottext" x="701" y="500">1</text>
+    </g>
+
+    <g class="jp-layer" data-layer="districts">
+      <g class="relief">
+        <path class="shadow" d="M229 180l140-43v116l-140 43z"/><path class="block" d="M214 163l140-43v116l-140 43z"/>
+        <path class="shadow" d="M425 156l176 40v110l-176-40z"/><path class="block" d="M410 140l176 40v110l-176-40z"/>
+        <path class="shadow" d="M730 162l160-40v118l-160 40z"/><path class="block" d="M715 146l160-40v118l-160 40z"/>
+        <path class="shadow" d="M894 443l159-49v117l-159 49z"/><path class="block" d="M879 427l159-49v117l-159 49z"/>
+      </g>
+      <g class="active">
+        <path class="overlay" d="M214 163l140-43v116l-140 43z"/><path class="overlay" d="M410 140l176 40v110l-176-40z"/><path class="overlay" d="M715 146l160-40v118l-160 40z"/><path class="overlay" d="M879 427l159-49v117l-159 49z"/>
+      </g>
+      <text class="label" x="216" y="220">EUROPEAN</text><text class="label" x="216" y="246">TOWN</text>
+      <text class="label" x="440" y="206">CHINESE</text><text class="label" x="440" y="232">KAMPONG</text>
+      <text class="label" x="741" y="192">CHULIAH</text><text class="label" x="741" y="218">KAMPONG</text>
+      <text class="label" x="900" y="475">BUGIS</text><text class="label" x="900" y="501">KAMPONG</text>
+      <circle class="hot" cx="618" cy="230" r="22"/><text class="hottext" x="618" y="230">2</text>
+    </g>
+
+    <g class="jp-layer" data-layer="reality">
+      <path class="line" d="M268 369L484 305L654 367L612 595L365 642L223 527z"/>
+      <path class="reality active" d="M268 369L484 305L654 367L612 595L365 642L223 527z"/>
+      <path class="fine" d="M289 395L561 551M382 345L438 624M250 504L633 410"/>
+      <text class="label" x="325" y="490">A PROPOSED ORDER</text>
+      <text class="micro" x="327" y="515">THE CITY DID NOT UNFOLD EXACTLY THIS WAY</text>
+      <circle class="hot" cx="577" cy="622" r="22"/><text class="hottext" x="577" y="622">3</text>
+    </g>
+
+    <path class="line" d="M92 710H1108"/>
+    <text class="micro" x="93" y="775">ORIGINAL EXPLANATORY SCHEMATIC — NOT AN ARCHIVAL MAP REPRODUCTION</text>
+  </g>
+</svg>

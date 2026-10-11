@@ -104,7 +104,7 @@ The first demo does not personalise by nationality, ethnicity, age, or assumed h
 | US-01 | P0 | As a user, I can grant camera access and sample a colour inside a visible target area. | A scan returns White, Beige / brown, Black, or No confident match. |
 | US-02 | P0 | As a user, I can choose a story manually if camera access or matching fails. | All three stories remain reachable without camera permission. |
 | US-03 | P0 | As a user, I can explore the Majestic Theatre as a rotatable reconstruction of its opera-house era. | Drag, zoom, reset, labels, then-versus-now context and reconstruction disclosure work. |
-| US-04 | P0 | As a user, I can inspect the Jackson Plan closely. | Pinch zoom, pan, reset, three annotations and source credit work. |
+| US-04 | P0 | As a user, I can inspect the Jackson Plan closely. | Pinch zoom, pan, reset, three annotations and source credit work. The plan visual is an original schematic unless archival-image reproduction permission has been secured. |
 | US-05 | P0 | As a user, I can inspect the Singapore Stone from every prepared angle. | Drag, zoom, reset, three hotspots and uncertainty note work. |
 | US-06 | P0 | As a user, I can see why the colour opened the story without being told that the scanned surface has a historical connection. | The result screen labels the match as a curated colour lens. |
 | US-07 | P1 | As a user, I can see which stories I have already opened during this session. | Session-only progress indicators update and reset when the app process resets. |
@@ -131,7 +131,7 @@ The first demo does not personalise by nationality, ethnicity, age, or assumed h
 | Manual palette | Preserve full access without the camera. | Three labelled choices |
 | Story shell | Hold shared title, time, introduction, disclosure, source and navigation. | Loaded locally, external source unavailable |
 | Majestic Theatre viewer | Present the white architectural reconstruction. | Rotate, zoom, hotspot, reset, reduced-motion fallback |
-| Jackson Plan viewer | Present the beige / brown document experience. | Pan, zoom, annotation, reset |
+| Jackson Plan viewer | Present the beige / brown document experience. | Pan, zoom, annotation, reset, three discovery layers, completion event |
 | Singapore Stone viewer | Present the black object experience. | Rotate, zoom, hotspot, reset, reduced-motion fallback |
 | About and sources | Explain the colour lens, source policy and privacy boundary. | Offline content, external links |
 
@@ -146,7 +146,7 @@ The first demo does not personalise by nationality, ethnicity, age, or assumed h
 | Colour lens | Historical anchor | Experience | Required factual boundary |
 | --- | --- | --- | --- |
 | **White** | **The Majestic Theatre** — commissioned/built in 1927 by Eu Tong Sen as a Cantonese opera house; some sources describe completion as 1928. It was later used as a cinema and converted into a shopping mall in 2003. | A touch-rotatable, white architectural line-drawing reconstruction of its opera-house era. Tap hotspots to examine its tiled facade, Cantonese-opera figures and dragon motifs, then reveal how its use changed over time. | Mark it **“visual reconstruction based on historical reference”**. The building survives, so describe it as transformed or repurposed—not destroyed. White is the experience’s visual lens, not a claim about its historical colour. Never present the reconstruction as a surveyed 3D replica or claim exact dimensions without source evidence. |
-| **Beige / brown** | **Plan of the Town of Singapore / Jackson Plan** — the 1828 lithograph derived from Lt Philip Jackson’s 1822 plan. | A high-resolution plan viewer with pinch-to-zoom and three bounded annotations: the Singapore River, planned districts, and the contrast between plan and later city. | Display the archive credit, accession information and a source link. Beige / brown connects to the plan’s paper-and-ink materiality; it does not validate a scanned surface’s relation to the document. Do not imply that the plan’s proposed layout was wholly executed. |
+| **Beige / brown** | **Plan of the Town of Singapore / Jackson Plan** — the 1828 lithograph derived from Lt Philip Jackson’s 1822 plan. | An original, touch-zoomable 2.5D explanatory schematic with three bounded discoveries: the Singapore River, planned districts, and the contrast between plan and later city. | Display the archive credit, accession information and a source link. The NAS digital image is viewable but requires permission for use/reproduction, so do not bundle or trace it without permission. Beige / brown connects to the plan’s paper-and-ink materiality; it does not validate a scanned surface’s relation to the document. Do not imply that the plan’s proposed layout was wholly executed. |
 | **Black** | **Singapore Stone** — surviving inscribed sandstone fragment dated broadly to the 10th–14th centuries. | A touch-driven 360° object view against a dark field; hotspots identify the inscription, the former river-mouth location, and the undeciphered-script uncertainty. | Separate the Badang tradition from documented physical history. Black is the experience’s visual lens, not a claim about the stone’s historical colour. State that scholars differ on the date/language and the inscription remains undeciphered. |
 
 ### Historical-source anchors
@@ -399,6 +399,21 @@ Use prepared turntable image sequences for both rotational experiences. Do not a
 - Preload the poster and nearby frames first, then the remaining sequence; show no blank canvas while loading.
 - Respect reduced-motion settings by defaulting to the poster image with explicit step controls.
 - If the prepared sequence cannot hold a smooth frame rate on the demonstration phone, reduce image dimensions or frame count before considering a different rendering engine.
+
+### Jackson Plan document component
+
+- The Jackson Plan is intentionally a 2.5D document component, not a rotatable 3D model: users pan and pinch-zoom an original schematic with shallow discovery overlays.
+- The three discoveries are `river`, `districts` and `reality`; opening all three emits a `jacksonplan:collected` event for the host app.
+- The app owns collection persistence and reward state. The component may report completion but must not send analytics, identify users or make a network request.
+- Use the original component package in `prototype/jackson-plan-v1/` as the source of truth until Mega integrates it into the deployed app.
+
+## 17A. Collection and reward contract
+
+- A story is collected only when the user has opened its required discoveries. For Jackson Plan, that means all three discovery points.
+- Store collected story IDs only in local device storage; no account, identity, location, camera image or collection state may be transmitted.
+- Calculate the counter from the currently published `STORIES` list. Never hard-code a total such as `3`; this lets the collection grow without a misleading reward condition.
+- When all published stories are collected, unlock a local **Singapore Through Colour** poster view: the collection colours, story names, the `two thousand` wordmark and a reset-collection control. Sharing/exporting is optional; the reward must work offline without it.
+- Update privacy copy to state that collection progress is stored locally on the device and can be reset.
 
 ## 18. History-component production criteria
 

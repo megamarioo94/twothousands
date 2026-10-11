@@ -238,4 +238,42 @@ Do not change the routing, camera classification, story data, viewer JavaScript 
 
 **Reference**: `DESIGN_SYSTEM.md` — Colour system, typography and layout rules.
 
+### C-003 — Integrate Jackson Plan and the local collection reward
+
+**Outcome**
+
+Replace the current generic Jackson canvas branch with the verified original 2.5D Jackson Plan component. Connect its three discoveries to a persistent local collection counter and the all-stories reward view.
+
+**Source package**
+
+Use `prototype/jackson-plan-v1/` as supplied:
+
+- `jackson-plan.svg`
+- `jackson-plan.css`
+- `jackson-plan.js`
+- `jackson-plan-hotspots.json`
+- `README.md`
+
+Do not substitute the NAS map image or trace it. The component is an original explanatory schematic because NAS permits viewing while requiring permission for use/reproduction of its digital image.
+
+**Integration requirements**
+
+- Copy the package into the direct Netlify deployment folder and load its CSS/JS from `huestory-3d/index.html`.
+- In the Jackson story branch, mount `JacksonPlan` instead of calling the generic canvas renderer.
+- Listen for `jacksonplan:collected`, then call an app-owned `markStoryCollected("jackson-plan")` function.
+- Keep the existing Jackson source URL, accession reference and the component disclosure visible.
+- Store a set of collected story IDs in `localStorage`; calculate the denominator from `STORIES.length`.
+- Unlock the local Singapore Through Colour poster only when every currently published story ID is collected. Include a reset-collection control.
+- Revise the privacy text: collection progress is stored locally on the device; no camera image, location or data is uploaded.
+
+**Acceptance check**
+
+- Jackson supports one-finger pan, pinch zoom, wheel zoom, explicit zoom controls and reset on the mobile viewport.
+- Its three discoveries each reveal the approved copy; after the third, one `jacksonplan:collected` event fires.
+- The app counter survives refresh on the same device, but no data is sent to a server.
+- The reward view appears only after every published story is collected and reset clears it.
+- The direct Netlify deployment still works offline after the service worker cache is populated.
+
+**Reference**: `docs/history/JACKSON_PLAN_CONTENT_BRIEF.md` and `prototype/jackson-plan-v1/README.md`.
+
 <!-- Remove a completed request in full after it is implemented and requester-verified. Add new ready-to-build changes above this line. -->
