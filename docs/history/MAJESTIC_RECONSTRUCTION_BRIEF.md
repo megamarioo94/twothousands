@@ -27,9 +27,9 @@ Create an evidence-bounded, mobile-first architectural study of the Majestic The
 | Style test | 8–12 rendered frames | Architectural-drawing visual language |
 | Final sequence | 24 transparent WebP frames | Device performance and historical disclosure |
 
-## Concept-only style study
+## Approved visual-direction study
 
-`prototype/majestic-v1/assets/majestic-style-study-v1.png` is an AI-generated visual study used only to test the white Art Deco / Chinese-detail rendering direction. It is not evidence, not a source image, not an approved reconstruction, and must not be represented as a historic rendering. The final model must be checked feature-by-feature against the evidence register.
+`prototype/majestic-v1/assets/majestic-style-study-v1.png` is the founder-approved aesthetic target for the Majestic Theatre 3D component: a white architectural study with strong dark contouring, restrained shadow and selective opera/dragon facade expression. It remains an interpretive AI-generated study, not historical evidence or a historic rendering. The final model must be checked feature-by-feature against the evidence register and retain the required reconstruction disclosure.
 
 ## Required disclosure
 

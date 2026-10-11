@@ -409,6 +409,7 @@ Use prepared turntable image sequences for both rotational experiences. Do not a
 - Do not model an undocumented feature merely to complete a camera angle. Limit the camera instead.
 - AI-generated geometry or imagery may support concept exploration, but it is not historical evidence and must be corrected against approved references before release.
 - All final historical copy, credits and reconstruction disclosures require founder approval before integration.
+- The founder-approved Majestic visual-direction study is the aesthetic target for the final 3D component: white simplified massing, dark contouring, restrained shadow and selectively expressive opera/dragon facade motifs. It remains interpretive and must never be presented as a measured survey or substitute for evidence.
 
 ### Majestic Theatre production batches
 
